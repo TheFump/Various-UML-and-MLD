@@ -1,0 +1,11 @@
+#MatérielInformatique(#numSerie:String, designation:String)
+
+PC(#numSerie:String, designation:String, RAM:Int, CPU:Int
+imprimante=>Imprimante(numSerie)) avec imprimante NOT NULL
+Contrainte : PROJ(Imprimante, numSérie) IN PROJ(PC, imprimante)
+
+Serveur(#numSerie:String, designation:String, HDD:Int)
+
+Imprimante(#numSerie:String, designation:String, resolution:Int)
+
+Assoc(numSerie=>PC, numSerie=>Serveur, quota:Int)

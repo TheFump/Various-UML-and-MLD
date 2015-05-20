@@ -1,0 +1,62 @@
+1) Y n'apparteint pas a g si y n'apaprtient pas a g et y' -> y;
+
+2)
+ab -> b rflexivité=
+b -> c transsitivité
+=> ab -> c
+
+3)
+Couverture minimale : couverture fonctionnelle élémentaire
+b->c, c->d
+
+4) f+ : b->c, c->d, b->d
+
+5) a, b clé
+preuve : a->a
+b-> c
+b->d
+b->b
+
+6) 1nf : oui car attributs atomiques et 1 clé
+   2nf : c déterminé par b => pas 2nf => pas 3nf
+
+7) c-> d => pas 3nf car c non clé
+
+8) b->c donc b->d pas c
+
+9) 2nf R1(#a, b, b=>R2)
+       R2(#b, c, d)
+
+	3n f :
+	R1(#a, b, b=>R2)
+        R2(#b, c, c=>R3)
+	R3(#c, d)
+
+
+4.1) 
+C->P; H,P->S; H,C->S
+H,S->C; C->P; H,S->P
+H,P->S, H,S->C ->H,P->C
+H,E->S; H,S->C; H,E->C, H, E->P
+H,E->C et C, E->N -> H, E->N
+
+C->P
+H,C->S
+H, S->C, P
+H, P->S, C
+H, E->S, C, P, N
+C, E->N
+
+2) H, E détermine tout -> potentiel
+H, E pas a droite de F+
+
+3)
+
+R1(C, E, N) : c et e clé, bcnf
+R2(C, P): c clé, bcnf
+R3(C, H, S) H, C clé, bcnf
+R4(C, H, E)H, E clé; bcnf
+
+sans perte, on retrouve la relation
+pas de preservation de df car on n'a pas p dans la partie gauche avec ces éléments
+

@@ -1,0 +1,27 @@
+Fabriquant(nom:String, #adresse:String, #tel:Int)
+Taille(longueur:int, largeur:int, #id:int)WITH longueur, largeur KEY
+
+Matelas(epaisseur:int, #ref:String, nomFab:string, description:string, couleur:string, 
+nom => Fabriquant(#nom), 
+type:{R, M, L}
+) WITH epaisseur, couleur, fabricant, nomFab, type NOT NULL
+Contrainte : PROJ (Fabriquant, nom) IN PROJ (MATELAS:nom)
+
+Sommier(hauteur:int, #ref:String, nomFab:string, description:string, couleur:string, 
+nom => Fabriquant(#nom),
+) WITH hauteur, couleur, fabricant, nomFab, type NOT NULL
+Contrainte : PROJ (Fabriquant, #nom) IN PROJ (MATELAS:nom)
+
+Remise(#matelas=>Matelas(ref), #sommier=>Sommier(ref), pourcentage:int)
+
+tailleMat(#matelas=>Matelas(ref), #taille=>Taille(id), prix:int)
+tailleSom(#taille=>Taille(id), #sommier=>Sommier(ref), prix:int)
+
+vRESSORT = RESTRICTION(MATELAS, type='R')
+vMOUSSE = RESTRICTION(MATELAS, type='M')
+vLATEX = RESTRICTION(MATELAS, type='L')
+
+
+
+
+

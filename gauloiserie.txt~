@@ -1,0 +1,3 @@
+Potion (#Nom:string, Effet:string, Durée:integer)
+Ingrédient (#Nom:string, Localisation:string)
+Composition (#NomP=>Potion(Nom), #NomI=>Ingrédient(Nom))

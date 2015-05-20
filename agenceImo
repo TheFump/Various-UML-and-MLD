@@ -1,0 +1,33 @@
+Ville(#nom : String)
+
+typeGarage(#type:String)
+typeLogement(#type:String)
+
+Garage(#numero:Integer, 
+addresse:String, 
+type_garage => TypeGarage(type))
+
+Logement(#addresse:String, ..., 
+type_logement => TypeLogement(type),
+ville => Ville(nom))
+
+Visite(visiteur => Personne(nom), logement_visité => Logement(addresse), #date:date)
+
+	
+Action(logement=> Logmement(addresse), transaction => Transaction(ref)) 
+PROJ(Logement, nom) IN PROJ (Action, logmement) et PROJ(Transaciton, ref) IN PROJ (Action, transaction)
+
+Personne(nom:String, prenom:String, #addresse:String, 
+proprio => Logement(addresse), 
+achat => Logement(addresse), 
+vend => Logement(addresse))
+
+
+ATTENTION : ADDRSSE NEXISTE PAS COMME TYPE => voir correciton pour datatype and enum
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+Hotel(#nom: string, adresse : string, etoiles : integer)
+
+Chambre(#numero:integer, prinx:float, 
+#hotel => Hotel(nom), 
+type_chambe=>TypeChambre(label))
+
+TypeChambre(#label:string)
+
+Bus(#ligne:string, #horraire:time, 
+hotel => Hotel(nom), 
+site_touritique => SiteTouristique(nom))
+
+SiteTouristique(#nom: string, ancienneté : date)
+
+Activité(#nom:string, genre =>typeActivité(genre))
+
+ActivitéParSite(#activité => Activité(nom), 
+#site => SiteTouristique(nom), 
+prix : float)
+
+TypeActivité(#genre : string)
+
+
+
+Restaurant(#nom : string, telephone : string, 
+type_cuisine => TypeCuisine(label), 
+hotel => Hotel(nom), 
+site_touristique => SiteTouristique(nom))
+
+TypeCuisine(#label:String)
+

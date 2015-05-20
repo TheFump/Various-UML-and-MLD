@@ -1,0 +1,44 @@
+Employe(
+#nom:String, 
+#prenom:String, 
+dateNaissance_jour:Integer, 
+dateNaissance_mois:Integer,
+dateNaissance_An:Integer, 
+quotité:float, 
+)avec dateNaissance_jour, dateNaissance_mois, dateNaissance_An KEY 
+
+Fonction(
+#nom:String, 
+RTT:Integer, 
+fonciton_estremplie_nom => Employe(nom)
+fonction_estremplie_prenom => Employe(prenom)
+fonciton_estremplie_date => Emploue(date)
+) avec fonction_est_remplie_nom, ..., ... NOT NULL
+Contrainte : PROJ(Employe, nom) IN PROJ (Fonction, fonciton_estremplie_nom), ..., ...
+
+Service(
+#nom:String, 
+RTT:Integer, 
+Service_inclue_nom => Employe(nom)
+...
+...
+)avec Service_inclue_nom, ..., ... not NULL
+Contrainte: PROJ(Employe, nom) IN PROJ (Service, Service_inclue_nom), ..., ...
+
+Salaire(
+#dateDebut:...
+...
+#percoit_salaire_nom=>Employe(nom)
+#percoit_salaire_prenom=>...
+...
+)
+
+Conge(
+#datedebut : ...
+#datefin : ...
+prendConge => Employe(nom)
+...
+...
+)
+
+NE PAS FAIRE DES RELATION A PLUSIEURS CLE MAIS UNE RELATION PAR CLE

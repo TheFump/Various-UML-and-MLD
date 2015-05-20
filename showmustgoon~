@@ -1,0 +1,44 @@
+Contraintes monorelation : 
+
+Representation est une association de spectacle et salle : voir nosalle et nospectacle
+
+Billet est une association de spectacle et salle
+
+Spectacle : Nom pas null, durée moins de 4h, type enum
+
+Salle : Moins de 500places, numero de 10 chiffres
+
+Representations : Interdit jour férié, prix même pour chaque spectacle
+
+Billets : nomclient not null, ...
+
+Contrainte entre relations:
+
+Un spectacle peux pa se derouler + d'une fois durant meme date dans une meme salle
+
+Un spectateur ne peut acheter que 1 billet par date
+
+Supression en cascade de spectable&representation, representation&salle, representation&billet
+
+nombre billet pour 1 representation <= nombre de place de la salle
+
+
+CREATE TABLE Spectacle (
+nospectacle Integer PRIMARY KEY,
+nom Varchar (25) NOT NULL,
+duree Integer,
+type Varchar(21),
+
+check (duree between 1 and 4),
+check (nospectacle < 10000),
+check (type in ('concert','representation','show'))
+)
+
+CREATE USER ADMIN; 
+CREATE USER guichetier;
+
+GRANT ALL PRIVILEGES ON guichet TO ADMIN;
+GRANT SELECT ON guichet to public;
+GRANT all privileges on guichet to guichetier;
+
+
